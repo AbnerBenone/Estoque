@@ -12,13 +12,16 @@ namespace AB.Estoque.Domain.Models
         public DateTime DataCadastro { get; set; }
         public Guid FornecedoresId { get; set; }
         public virtual Fornecedores Fornecedores { get; set; }
+        public bool Ativo { get; set; }
+        public bool Excluido { get; set; }
 
         public Produtos()
         {
                 
         }
 
-        public Produtos(string name, string categoria, string quantEstoque, string valorCusto, string valorRevenda, DateTime dataCadastro)
+        public Produtos(string name, string categoria, string quantEstoque,
+            string valorCusto, string valorRevenda, DateTime dataCadastro, bool ativo, bool excluido)
         {
             Name = name;
             Categoria = categoria;
@@ -26,6 +29,8 @@ namespace AB.Estoque.Domain.Models
             ValorCusto = valorCusto;
             ValorRevenda = valorRevenda;
             DataCadastro = dataCadastro;
+            Ativo = ativo;
+            Excluido = excluido;
         }
 
         public void AdicionarProduto(int quantidade)
@@ -37,7 +42,12 @@ namespace AB.Estoque.Domain.Models
         {
             QuantEstoque -= quantidade;
         }
+        public void Excluir()
+        {
+            Ativo = true;
+            Excluido = false;
+        }
 
-       
+
     }
 }
