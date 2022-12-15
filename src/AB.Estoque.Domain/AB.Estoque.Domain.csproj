@@ -44,16 +44,17 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Clientes.cs" />
-    <Compile Include="Models\Enderecos.cs" />
+    <Compile Include="Interfaces\IClienteRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Models\Cliente\Clientes.cs" />
+    <Compile Include="Models\Cliente\Enderecos.cs" />
     <Compile Include="Models\Entity.cs" />
-    <Compile Include="Models\Fornecedores.cs" />
-    <Compile Include="Models\Produtos.cs" />
-    <Compile Include="Models\Vendas.cs" />
+    <Compile Include="Models\Fornecedores\Fornecedores.cs" />
+    <Compile Include="Models\Produtos\Produtos.cs" />
+    <Compile Include="Models\Vendas\Vendas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
     <Folder Include="ValueObjects\" />
   </ItemGroup>

@@ -8,9 +8,9 @@ namespace AB.Estoque.Domain.Models
         public string Name { get; set; }
         public virtual ICollection<Enderecos> Enderecos { get; set; }
         public string Email { get; set; }
-        public int CPF { get; set; }
-        public int RG { get; set; }
-        public int Telefone { get; set; }
+        public string CPF { get; set; }
+        public string RG { get; set; }
+        public string Telefone { get; set; }
         public string NomeFantasia { get; set; }
         public DateTime DataNascimento { get; set; }
         public DateTime DataCadastro { get; set; }
@@ -22,7 +22,7 @@ namespace AB.Estoque.Domain.Models
             Enderecos = new List<Enderecos>();     
         }
 
-        public Clientes(string name, string email, int cpf, int rg, int telefone, string nomeFantasia, DateTime dataNascimento, DateTime dataCadastro, bool ativo, bool excluido)
+        public Clientes(string name, string email, string cpf, string rg, string telefone, string nomeFantasia, DateTime dataNascimento, DateTime dataCadastro, bool ativo, bool excluido)
         {
             Name = name;
             Email = email;
@@ -44,6 +44,12 @@ namespace AB.Estoque.Domain.Models
         public void RemoverCliente()
         {
 
+        }
+
+        public void Excluir()
+        {
+            Ativo = true;
+            Excluido = false;
         }
     }
 }

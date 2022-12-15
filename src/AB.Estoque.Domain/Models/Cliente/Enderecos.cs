@@ -6,12 +6,12 @@ namespace AB.Estoque.Domain.Models
     public class Enderecos : Entity
     {
         public string Logradouro { get; set; }
-        public int Numero { get; set; }
+        public string Numero { get; set; }
         public string Complemento { get; set; }
         public string Bairro { get; set; }        
         public string Cidade { get; set; }
         public string Estado { get; set; }
-        public int CEP { get; set; }
+        public string CEP { get; set; }
         public Guid ClienteId { get; set; }
         public virtual Clientes Cliente { get; set; }
 
@@ -20,7 +20,7 @@ namespace AB.Estoque.Domain.Models
                 
         }
 
-        public Enderecos(string logradouro, int numero, string complemento, string bairro, string cidade, string estado, int cep)
+        public Enderecos(string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string cep)
         {
             Logradouro = logradouro;
             Numero = numero;

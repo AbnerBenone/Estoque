@@ -1,6 +1,8 @@
 ﻿using AB.Estoque.Domain.Models;
-using System;
-using System.Collections.Generic;
+using AB.Estoque.Infra.Data.EntityConfig;
+using AB.Estoque.Infra.Data.EntityConfig.Fornecedores;
+using AB.Estoque.Infra.Data.EntityConfig.Produtos;
+using AB.Estoque.Infra.Data.EntityConfig.Vendas;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
@@ -22,6 +24,12 @@ namespace AB.Estoque.Infra.Data.Context
 
             modelBuilder.Properties<string>().Configure(p => p.HasColumnType("varchar"));
             modelBuilder.Properties<string>().Configure(p => p.HasMaxLength(100));
+
+            modelBuilder.Configurations.Add(new ClienteConfig());
+            modelBuilder.Configurations.Add(new EnderecoConfig());
+            modelBuilder.Configurations.Add(new FornecedoresConfig());
+            modelBuilder.Configurations.Add(new ProdutosConfig());
+            modelBuilder.Configurations.Add(new VendasConfig());
 
 
             base.OnModelCreating(modelBuilder);
