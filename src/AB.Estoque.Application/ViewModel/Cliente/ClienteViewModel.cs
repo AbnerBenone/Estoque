@@ -11,6 +11,7 @@ namespace AB.Estoque.Application.ViewModel.Cliente
         {
             Id = Guid.NewGuid();
         }
+
         [Key]
         public Guid Id { get; set; }
 
