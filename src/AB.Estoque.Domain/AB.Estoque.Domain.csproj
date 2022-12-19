@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IClienteRepository.cs" />
+    <Compile Include="Interfaces\IFornecedorRepository.cs" />
+    <Compile Include="Interfaces\IProdutoRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Models\Cliente\Clientes.cs" />
     <Compile Include="Models\Cliente\Enderecos.cs" />

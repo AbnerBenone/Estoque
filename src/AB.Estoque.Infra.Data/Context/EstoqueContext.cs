@@ -1,8 +1,5 @@
 ﻿using AB.Estoque.Domain.Models;
 using AB.Estoque.Infra.Data.EntityConfig;
-using AB.Estoque.Infra.Data.EntityConfig.Fornecedores;
-using AB.Estoque.Infra.Data.EntityConfig.Produtos;
-using AB.Estoque.Infra.Data.EntityConfig.Vendas;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 

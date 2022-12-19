@@ -37,7 +37,7 @@ namespace AB.Estoque.Infra.Data.Repository
             return obj;
         }
 
-        public IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate)
+        public virtual IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate)
         {
             return DbSet.Where(predicate);
         }

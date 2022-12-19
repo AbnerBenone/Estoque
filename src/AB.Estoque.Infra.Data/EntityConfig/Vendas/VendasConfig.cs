@@ -2,7 +2,7 @@
 using System.Data.Entity.ModelConfiguration;
 
 
-namespace AB.Estoque.Infra.Data.EntityConfig.Vendas
+namespace AB.Estoque.Infra.Data.EntityConfig
 {
     public class VendasConfig : EntityTypeConfiguration<Vendas>
     {
