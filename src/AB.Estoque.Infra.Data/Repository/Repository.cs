@@ -25,28 +25,8 @@ namespace AB.Estoque.Infra.Data.Repository
             var retEnt = DbSet.Add(obj);
             SaveChanges();
             return retEnt;
-        }
-
-        public virtual TEntity Atualizar(TEntity obj)
-        {
-            var entry = Db.Entry(obj);
-            DbSet.Attach(obj);
-            entry.State = EntityState.Modified;
-            SaveChanges();
-
-            return obj;
-        }
-
-        public virtual IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate)
-        {
-            return DbSet.Where(predicate);
-        }
-
-        public void Dispose()
-        {
-            Db.Dispose();
-        }
-
+        }          
+        
         public virtual TEntity ObterPorId(Guid Id)
         {
             return DbSet.Find(Id);
@@ -62,16 +42,34 @@ namespace AB.Estoque.Infra.Data.Repository
             return DbSet.Skip(s).Take(t).ToList();
         }
 
+        public virtual TEntity Atualizar(TEntity obj)
+        {
+            var entry = Db.Entry(obj);
+            DbSet.Attach(obj);
+            entry.State = EntityState.Modified;
+            SaveChanges();
+
+            return obj;
+        }
         public virtual void Remover(Guid Id)
         {
             var obj = new TEntity() {Id = Id};
             DbSet.Remove(obj);
             SaveChanges();
         }
+        public IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate)
+        {
+            return DbSet.Where(predicate);
+        }
 
         public int SaveChanges()
         {
             return Db.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            Db.Dispose();
         }
     }
 }

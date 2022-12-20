@@ -7,11 +7,7 @@ using System.Linq;
 namespace AB.Estoque.Infra.Data.Repository
 {
     public class FornecedorRepository : Repository<Fornecedores>, IFornecedorRepository
-    {
-        public IEnumerable<Fornecedores> ObterAtivos()
-        {
-            return Buscar(f => f.Ativo && !f.Excluido);
-        }
+    {       
 
         public Fornecedores ObterPorCnpj(string cnpj)
         {
@@ -21,6 +17,10 @@ namespace AB.Estoque.Infra.Data.Repository
         public Fornecedores ObterPorEmail(string email)
         {
             return Buscar(c => c.Email == email).FirstOrDefault();
+        }
+        public IEnumerable<Fornecedores> ObterAtivos()
+        {
+            return Buscar(f => f.Ativo && !f.Excluido);
         }
 
         public override void Remover(Guid Id)

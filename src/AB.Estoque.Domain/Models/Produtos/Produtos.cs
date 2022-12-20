@@ -40,7 +40,7 @@ namespace AB.Estoque.Domain.Models
 
         public void RemoverProduto(int quantidade)
         {
-            QuantEstoque -= quantidade;
+            QuantEstoque.Remove(quantidade);
         }
         public void Excluir()
         {
