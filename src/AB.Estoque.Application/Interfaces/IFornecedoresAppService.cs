@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AB.Estoque.Application.Interfaces
 {
-    public class IFornecedoresAppService : IDisposable
+    public interface IFornecedoresAppService : IDisposable
     {
         FornecedorProdutoViewModel Adicionar(FornecedorProdutoViewModel fornecedorProdutoViewModel);
         FornecedorViewModel ObterPorId(Guid id);
@@ -15,9 +15,5 @@ namespace AB.Estoque.Application.Interfaces
         FornecedorViewModel Atualizar(FornecedorViewModel clienteViewModel);
         void Remover(Guid id);
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
