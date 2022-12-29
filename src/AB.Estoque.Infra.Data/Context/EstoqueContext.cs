@@ -7,6 +7,12 @@ namespace AB.Estoque.Infra.Data.Context
 {
     public class EstoqueContext : DbContext
     {
+        public EstoqueContext()
+            :base("DefaultConnection")
+        {
+
+        }
+
         public DbSet<Clientes> Clientes { get; set; }
         public DbSet<Enderecos> Enderecos { get; set; }
         public DbSet<Fornecedores> Fornecedores { get; set; }

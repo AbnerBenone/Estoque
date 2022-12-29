@@ -7,18 +7,18 @@ using AutoMapper;
 
 namespace AB.Estoque.Application.AutoMapper
 {
-    public class ViewModelToDomainMappingProfile : Profile
-    {
-        protected override void Configure()
-        {
-            CreateMap<ClienteViewModel, Clientes>().ReverseMap();
-            CreateMap<ClienteEnderecoViewModel, Clientes>().ReverseMap();
-            CreateMap<EnderecoViewModel, Enderecos>().ReverseMap();
-            CreateMap<ClienteEnderecoViewModel, Enderecos>().ReverseMap();
-            CreateMap<FornecedorViewModel, Fornecedores>().ReverseMap();
-            CreateMap<FornecedorProdutoViewModel, Fornecedores>().ReverseMap();
-            CreateMap<ProdutoViewModel, Produtos>().ReverseMap();
-            CreateMap<FornecedorProdutoViewModel, Produtos>().ReverseMap();
-        }
-    }
+    //public class ViewModelToDomainMappingProfile : Profile
+    //{
+    //    protected override void Configure()
+    //    {
+    //        CreateMap<ClienteViewModel, Clientes>().ReverseMap();
+    //        CreateMap<ClienteEnderecoViewModel, Clientes>().ReverseMap();
+    //        CreateMap<EnderecoViewModel, Enderecos>().ReverseMap();
+    //        CreateMap<ClienteEnderecoViewModel, Enderecos>().ReverseMap();
+    //        CreateMap<FornecedorViewModel, Fornecedores>().ReverseMap();
+    //        CreateMap<FornecedorProdutoViewModel, Fornecedores>().ReverseMap();
+    //        CreateMap<ProdutoViewModel, Produtos>().ReverseMap();
+    //        CreateMap<FornecedorProdutoViewModel, Produtos>().ReverseMap();
+    //    }
+    //}
 }
