@@ -29,6 +29,6 @@ namespace AB.Estoque.UI.Web.Models
         {
             return new ApplicationDbContext();
         }
-
+        
     }
 }

@@ -3,22 +3,21 @@ using System.Net;
 using System.Web.Mvc;
 using AB.Estoque.Application.Interfaces;
 using AB.Estoque.Application.Services;
-using AB.Estoque.Application.ViewModel.Cliente;
+using AB.Estoque.Application.ViewModel.Fornecedor;
 
 namespace AB.Estoque.UI.Web.Controllers
 {
-    public class ClientesController : Controller
+    public class FornecedoresController : Controller
     {
-        private readonly IClienteAppService _clienteAppService;
-
-        public ClientesController()
+        private readonly IFornecedoresAppService _fornecedorAppService;
+        public FornecedoresController()
         {
-            _clienteAppService = new ClienteAppService();
+            _fornecedorAppService = new FornecedorAppService();
         }
-       
+
         public ActionResult Index()
         {
-            return View(_clienteAppService.ObterAtivos());
+            return View(_fornecedorAppService.ObterAtivos());
         }
         
         public ActionResult Details(Guid? id)
@@ -27,32 +26,32 @@ namespace AB.Estoque.UI.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var clienteViewModel = _clienteAppService.ObterPorId(id.Value);
 
-            if (clienteViewModel == null)
+            var fornecedorViewModel = _fornecedorAppService.ObterPorId(id.Value);
+
+            if (fornecedorViewModel == null)
             {
                 return HttpNotFound();
             }
-
-            return View(clienteViewModel);
+            return View(fornecedorViewModel);
         }
-        
+       
         public ActionResult Create()
         {
             return View();
         }
-       
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ClienteEnderecoViewModel clienteEnderecoViewModel)
+        public ActionResult Create(FornecedorProdutoViewModel fornecedorProdutoViewModel)
         {
             if (ModelState.IsValid)
             {
-                _clienteAppService.Adicionar(clienteEnderecoViewModel);
+                _fornecedorAppService.Adicionar(fornecedorProdutoViewModel);
                 return RedirectToAction("Index");
             }
 
-            return View(clienteEnderecoViewModel);
+            return View(fornecedorProdutoViewModel);
         }
         
         public ActionResult Edit(Guid? id)
@@ -61,26 +60,26 @@ namespace AB.Estoque.UI.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var clienteViewModel = _clienteAppService.ObterPorId(id.Value);
 
-            if (clienteViewModel == null)
+            var fornecedorViewModel = _fornecedorAppService.ObterPorId(id.Value);
+
+            if (fornecedorViewModel == null)
             {
                 return HttpNotFound();
             }
-            return View(clienteViewModel);
+            return View(fornecedorViewModel);
         }
-        
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(ClienteViewModel clienteViewModel)
+        public ActionResult Edit([Bind(Include = "Id,RazaoSocial,NomeFantasia,CNPJ,InscricaoEstadual,Email,Telefone,Ativo,Excluido")] FornecedorViewModel fornecedorViewModel)
         {
             if (ModelState.IsValid)
             {
-                _clienteAppService.Atualizar(clienteViewModel);
-
+                _fornecedorAppService.Atualizar(fornecedorViewModel);
                 return RedirectToAction("Index");
             }
-            return View(clienteViewModel);
+            return View(fornecedorViewModel);
         }
         
         public ActionResult Delete(Guid? id)
@@ -89,20 +88,21 @@ namespace AB.Estoque.UI.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var clienteViewModel = _clienteAppService.ObterPorId(id.Value);
 
-            if (clienteViewModel == null)
+            var fornecedorViewModel = _fornecedorAppService.ObterPorId(id.Value);
+
+            if (fornecedorViewModel == null)
             {
                 return HttpNotFound();
             }
-            return View(clienteViewModel);
+            return View(fornecedorViewModel);
         }
         
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            _clienteAppService.Remover(id);
+            _fornecedorAppService.Remover(id);
             return RedirectToAction("Index");
         }
 
@@ -110,7 +110,7 @@ namespace AB.Estoque.UI.Web.Controllers
         {
             if (disposing)
             {
-                _clienteAppService.Dispose();
+                _fornecedorAppService.Dispose();
             }
             base.Dispose(disposing);
         }

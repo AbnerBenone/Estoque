@@ -19,11 +19,13 @@ namespace AB.Estoque.Application.ViewModel.Fornecedor
         [Required(ErrorMessage = "Preencha o campo Razão Social")]
         [MaxLength(150, ErrorMessage = "Máximo {0} caracteres")]
         [MinLength(2, ErrorMessage = "Mínimo {0} caracteres")]
+        [DisplayName("Razão Social")]
         public string RazaoSocial { get; set; }
 
         [Required(ErrorMessage = "Preencha o campo Nome Fantasia")]
         [MaxLength(150, ErrorMessage = "Máximo {0} caracteres")]
         [MinLength(2, ErrorMessage = "Mínimo {0} caracteres")]
+        [DisplayName("Nome Fantasia")]
         public string NomeFantasia { get; set; }
 
         [Required(ErrorMessage = "Preencha o campo CNPJ")]
@@ -31,8 +33,9 @@ namespace AB.Estoque.Application.ViewModel.Fornecedor
         public string CNPJ { get; set; }
 
         [Required(ErrorMessage = "Preencha o campo Inscrição Estadual")]
-        [MaxLength(150, ErrorMessage = "Máximo {0} caracteres")]
-        public string InscricaoEstadual { get; set; }
+        [MaxLength(20, ErrorMessage = "Máximo {0} caracteres")]
+        [DisplayName("Inscrição Estadual")]
+        public int InscricaoEstadual { get; set; }
 
         [Required(ErrorMessage = "Preencha o campo E-mail")]
         [MaxLength(100, ErrorMessage = "Máximo {0} caracteres")]
@@ -43,7 +46,7 @@ namespace AB.Estoque.Application.ViewModel.Fornecedor
         [Required(ErrorMessage = "Preencha o campo Telefone")]
         [MaxLength(50, ErrorMessage = "Máximo {0} caracteres")]
         [MinLength(8, ErrorMessage = "Mínimo {0} caracteres")]
-        public string Telefone { get; set; }
+        public int Telefone { get; set; }
 
         [ScaffoldColumn(false)]
         public bool Ativo { get; set; }

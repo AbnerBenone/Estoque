@@ -1,0 +1,60 @@
+﻿@model IEnumerable<AB.Estoque.Application.ViewModel.Produto.ProdutoViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantEstoque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorCusto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorRevenda)
+        </th>       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuantEstoque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorCusto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorRevenda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FornecedoresId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

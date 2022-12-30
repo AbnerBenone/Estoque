@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -26,13 +27,16 @@ namespace AB.Estoque.Application.ViewModel.Produto
         [MaxLength(150, ErrorMessage = "Máximo {0} caracteres")]
         public string Categoria { get; set; }
 
-        [Required(ErrorMessage = "Preencha o campo Quantidade em estoque")]        
+        [Required(ErrorMessage = "Preencha o campo Quantidade em estoque")]
+        [DisplayName("Estoque Atual")]
         public string QuantEstoque { get; set; }
 
         [Required(ErrorMessage = "Preencha o campo Valor de custo")]
+        [DisplayName("Custo")]
         public string ValorCusto { get; set; }
 
         [Required(ErrorMessage = "Preencha o campo Valor de revenda")]
+        [DisplayName("Revenda")]
         public string ValorRevenda { get; set; }
 
         [ScaffoldColumn(false)]
@@ -44,6 +48,7 @@ namespace AB.Estoque.Application.ViewModel.Produto
         [ScaffoldColumn(false)]
         public bool Excluido { get; set; }
 
+        [ScaffoldColumn(false)]
         public Guid FornecedoresId { get; set; }
 
     }
